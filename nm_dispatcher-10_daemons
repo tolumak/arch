@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. /etc/rc.conf
+. /etc/rc.d/functions
+
+eval daemons=\$${1}_DAEMONS
+
+for daemon in $daemons; do 
+    case $2 in 
+	"up")
+	    ck_daemon $daemon && start_daemon $daemon
+	    ;;
+	"down")
+	    ck_daemon $daemon || stop_daemon $daemon
+	    ;;
+    esac
+done
+
+
+	
+	
