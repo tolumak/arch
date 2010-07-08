@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ $1 = "ppp0" -a $2 = "down" ] ; then
+/usr/sbin/usb_modeswitch -v 04e8 -p 6773 -R
+fi
